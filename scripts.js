@@ -28,6 +28,7 @@ users.forEach(function(user){
             console.log(user + " is not streaming");
           }else{
             console.log(user + " is streaming. Status: "+cData.status);
+            console.log(cData);
           }
           // console.log(cData);
         }
