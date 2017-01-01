@@ -10,7 +10,20 @@ $('submit').on('click', function(e){
   e.preventDefault();
   //grab value from input
   var sQuery = $('input').val();
-  console.log(sQuery);
+
+  //ajax using sQuery
+  $.ajax({
+    url: bUrl +"search/channels",
+    data: {
+      query: sQuery,
+      client_id: client_id,
+    },
+    success: function(sData){
+      for(var i = 0; i < sData.channels.length; i++){
+        console.log(sData.channels[i].display_name);
+      }
+    }
+  });
 });
   //build ajax call for search
   // $.ajax({
