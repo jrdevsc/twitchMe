@@ -1,3 +1,8 @@
+//notes to self
+//proper url format:
+//.../kraken/{users, chanels}/{<uid>, <cid>}?client_id=blah blah blah
+
+
 var client_id = "yhjsiruqbj18c73zd8txvkvlmirx4m";
 var bUrl = "https://api.twitch.tv/kraken/";
 
@@ -15,9 +20,8 @@ users.forEach(function(user){
       console.log(user+": "+data._id);
       //another ajax to see of the user is streaming
       $.ajax({
-        url: bUrl+"streams/",
+        url: bUrl+"channels/" +user,
         data:{
-          cid: data._id,
           client_id: client_id,
         },
         success: function(stream){
