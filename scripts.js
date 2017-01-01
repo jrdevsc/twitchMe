@@ -19,9 +19,14 @@ $('submit').on('click', function(e){
       client_id: client_id,
     },
     success: function(sData){
+      console.log(sData.channels.length);
       for(var i = 0; i < sData.channels.length; i++){
-        console.log(sData.channels[i].display_name);
+        var sResultsName = sData.channels[i].display_name;
+
+        $('#sResults h4').append(`<a href="${bUrl+"users/"+sResultsName}">${sResultsName}/${client_id}</a>`);
       }
+
+      $('#sResults h2').removeClass('hidden');
     }
   });
 });
