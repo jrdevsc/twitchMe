@@ -17,15 +17,19 @@ users.forEach(function(user){
       client_id: client_id,
     },
     success: function(data){
-      console.log(user+": "+data._id);
       //another ajax to see of the user is streaming
       $.ajax({
         url: bUrl+"channels/" +user,
         data:{
           client_id: client_id,
         },
-        success: function(stream){
-          console.log(stream);
+        success: function(cData){
+          if(cData.status == null){
+            console.log(user + " is not streaming");
+          }else{
+            console.log(user + " is streaming. Status: "+cData.status);
+          }
+          // console.log(cData);
         }
       });
     }
