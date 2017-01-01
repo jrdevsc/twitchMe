@@ -26,9 +26,10 @@ users.forEach(function(user){
         success: function(cData){
           if(cData.status == null){
             console.log(user + " is not streaming");
+            $('#nStreaming').append("<li>"+user+"</li>");
           }else{
             console.log(user + " is streaming. Status: "+cData.status);
-            console.log(cData);
+            $('#cStreaming').append("<li>"+user+"</li>");
           }
           // console.log(cData);
         }
