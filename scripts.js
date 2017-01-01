@@ -23,7 +23,7 @@ $('submit').on('click', function(e){
       for(var i = 0; i < sData.channels.length; i++){
         var sResultsName = sData.channels[i].display_name;
 
-        $('#sResults h4').append(`<a href="${bUrl+"users/"+sResultsName}">${sResultsName}/${client_id}</a>`);
+        $('#sResults h4').append(`<a href="${bUrl+"users/"+sResultsName}/${client_id}">${sResultsName}</a>`+"<br>");
       }
 
       $('#sResults h2').removeClass('hidden');
